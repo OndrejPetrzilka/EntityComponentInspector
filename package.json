@@ -4,7 +4,7 @@
   "version": "0.1.0-preview",
   "unity": "2019.1",
   "unityRelease": "0f1",
-  "description": "Adds support for writing custom Entity component inspectors",
+  "description": "Adds support for writing custom Entity component inspectors. Add method 'void OnEditorGUI(string label)' to your component or create new class implementing 'IComponentEditor<T>' where T is component type.",
   "dependencies": {
     "com.unity.entities": "0.1.1-preview"
   },
