@@ -1,7 +1,13 @@
 # EntityComponentInspector
 Package for implementing custom entity component inspectors.
 
-## Adding inspector code directly to component struct
+## Installation
+Add following to your package manifest (Packages/manifest.json):
+
+`"entity-inspector-extension": "https://github.com/OndrejPetrzilka/EntityComponentInspector.git"`
+
+## Usage
+### Adding inspector code directly to component struct
 
 Add method `void OnEditorGUI(string label)` to your component.
 
@@ -26,7 +32,7 @@ public struct DebugName : IComponentData
 }
 ```
   
-## Writing separate editor class
+### Writing separate editor class
 
 Create new class implementing `IComponentEditor<T>` where T is component type.
 
