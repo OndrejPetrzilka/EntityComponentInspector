@@ -1,0 +1,18 @@
+{
+  "name": "entity-inspector-extension",
+  "displayName": "Entity Inspector Extension",
+  "version": "0.1.0-preview",
+  "unity": "2019.1",
+  "unityRelease": "0f1",
+  "description": "Add support for writing custom Entity component inspectors",
+  "dependencies": {
+    "com.unity.entities": "0.1.1-preview"
+  },
+  "keywords": [
+    "dots",
+    "inspector",
+    "editor",
+    "unity",
+	"entity"
+  ]
+}
