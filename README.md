@@ -18,11 +18,6 @@ public struct DebugName : IComponentData
 {
     public NativeString64 Value;
 
-    public DebugName(string debugName)
-    {
-        Value = new NativeString64(debugName);
-    }
-
 #if UNITY_EDITOR
     void OnEditorGUI(string label)
     {
@@ -47,7 +42,7 @@ public class DebugNameEditor : IComponentEditor<DebugName>
     {
         EditorGUI.BeginChangeCheck();
 
-        value = new DebugName(EditorGUILayout.TextField(property.GetName(), value.Value.ToString()));
+        value.Value = new NativeString64(EditorGUILayout.TextField(property.GetName(), value.Value.ToString()));
 
         if (EditorGUI.EndChangeCheck())
         {
