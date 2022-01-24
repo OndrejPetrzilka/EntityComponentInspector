@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.Entities;
 using Unity.Properties;
+using Unity.Properties.Adapters;
 using UnityEditor;
 
 /// <summary>
@@ -18,7 +19,7 @@ class ComponentEditorMethod
         public abstract void Init(MethodInfo method);
     }
 
-    class Visitor<T> : Visitor, IVisitAdapter<T>
+    class Visitor<T> : Visitor, IVisit<T>
         where T : struct, IComponentData
     {
         delegate void EditorGUIDelegate(ref T value, string label);
@@ -30,16 +31,15 @@ class ComponentEditorMethod
             m_guiMethod = (EditorGUIDelegate)Delegate.CreateDelegate(typeof(EditorGUIDelegate), method);
         }
 
-        public VisitStatus Visit<TProperty, TContainer>(IPropertyVisitor visitor, TProperty property, ref TContainer container, ref T value, ref ChangeTracker changeTracker)
-            where TProperty : IProperty<TContainer, T>
+        public VisitStatus Visit<TContainer>(Property<TContainer, T> property, ref TContainer container, ref T value)
         {
             EditorGUI.BeginChangeCheck();
 
-            m_guiMethod(ref value, property.GetName());
+            m_guiMethod(ref value, property.Name);
 
             if (EditorGUI.EndChangeCheck())
             {
-                changeTracker.MarkChanged();
+                //changeTracker.MarkChanged(); 
             }
             return VisitStatus.Handled;
         }
