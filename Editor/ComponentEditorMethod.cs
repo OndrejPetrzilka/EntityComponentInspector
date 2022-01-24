@@ -41,7 +41,7 @@ class ComponentEditorMethod
             {
                 //changeTracker.MarkChanged(); 
             }
-            return VisitStatus.Handled;
+            return VisitStatus.Stop;
         }
     }
 
