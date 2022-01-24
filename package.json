@@ -1,7 +1,7 @@
 {
   "name": "org.petrzilka.entity-inspector-extension",
   "displayName": "Entity Inspector Extension",
-  "version": "0.1.2-preview",
+  "version": "0.1.3-preview",
   "unity": "2019.1",
   "unityRelease": "0f1",
   "description": "Adds support for writing custom Entity component inspectors. Add method 'void OnEditorGUI(string label)' to your component or create new class implementing 'IComponentEditor<T>' where T is component type.",
